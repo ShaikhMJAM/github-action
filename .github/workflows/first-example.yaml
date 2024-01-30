@@ -28,10 +28,9 @@ jobs:
       - name: Run PowerShell Script
         shell: powershell
         run: |
-          # Use the direct reference to the PowerShell executable
-          $powershellPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
-          Write-Host "PowerShell Path: $powershellPath"
-          echo "POWERSHELL_PATH=$powershellPath" >> $GITHUB_ENV
+          # Use the PowerShell path from the environment variable
+          Write-Host "PowerShell Path: $env:POWERSHELL_PATH"
+          echo "POWERSHELL_PATH=$env:POWERSHELL_PATH" >> $GITHUB_ENV
 
           # Your PowerShell script goes here
           Write-Host "Hello from PowerShell!"
