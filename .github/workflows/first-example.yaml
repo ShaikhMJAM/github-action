@@ -28,10 +28,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20" # Change this to the Node.js version you need
+      - name: Use Node.js from System
+        run: |
+          npm --version
+          node --version
 
       - name: Install Dependencies
         run: npm install
