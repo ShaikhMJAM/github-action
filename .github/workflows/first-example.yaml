@@ -26,13 +26,24 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20" # Change this to the Node.js version you need
 
       - name: Install Dependencies
+        run: npm install
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Yarn Install
         run: yarn install
 
       - name: Build
-        run: yarn run build
+        run: npm run build
 
       - name: Print Success Message
         if: success()
