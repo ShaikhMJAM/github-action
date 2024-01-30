@@ -26,11 +26,7 @@ jobs:
 
     steps:
       - name: Run PowerShell Script
-        shell: pwsh
-        run:
-          echo $env:POWERSHELL_PATH
-          # Use the direct reference to the PowerShell executable
-          #Write-Host "PowerShell Path: $env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
+        run: echo $env:POWERSHELL_PATH
 
       - name: Checkout Code
         uses: actions/checkout@v4
