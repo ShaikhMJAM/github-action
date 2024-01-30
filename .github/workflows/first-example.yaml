@@ -18,26 +18,21 @@ name: Node.js Build
 on:
   push:
     branches:
-      - main # Change this to the branch you want to trigger the workflow on
+      - main
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "16" # Change this to the Node.js version you need
-
       - name: Install Dependencies
         run: npm install
 
       - name: Build
-        run: npm run build # Change this to your build script or command
+        run: npm run build
 
       - name: Print Success Message
         if: success()
