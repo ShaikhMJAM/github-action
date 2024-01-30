@@ -26,8 +26,7 @@ jobs:
 
     steps:
       - name: Run PowerShell Script
-        run: echo $env:POWERSHELL_PATH
-
+        run: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
       - name: Checkout Code
         uses: actions/checkout@v4
 
