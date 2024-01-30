@@ -27,13 +27,7 @@ jobs:
     steps:
       - name: Run PowerShell Script
         shell: powershell
-        run: |
-          # Use the PowerShell path from the environment variable
-          Write-Host "PowerShell Path: $env:POWERSHELL_PATH"
-          echo "POWERSHELL_PATH=$env:POWERSHELL_PATH" >> $GITHUB_ENV
-
-          # Your PowerShell script goes here
-          Write-Host "Hello from PowerShell!"
+        run: echo $env:POWERSHELL_PATH
 
       - name: Checkout Code
         uses: actions/checkout@v4
