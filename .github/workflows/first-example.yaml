@@ -13,7 +13,7 @@
 #       - name: read files
 #         run: cat README.md
 
-name: Node.js Build
+name: Example Workflow
 
 on:
   push:
@@ -21,18 +21,23 @@ on:
       - main
 
 jobs:
-  build:
+  example-job:
     runs-on: self-hosted
 
     steps:
-      - name: Set PowerShell Path
+      - name: Run PowerShell Script
+        shell: powershell
         run: |
-          $powershellPath = "${env:SystemRoot}\System32\WindowsPowerShell\v1.0\powershell.exe"
+          # Use the direct reference to the PowerShell executable
+          $powershellPath = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
           Write-Host "PowerShell Path: $powershellPath"
           echo "POWERSHELL_PATH=$powershellPath" >> $GITHUB_ENV
 
+          # Your PowerShell script goes here
+          Write-Host "Hello from PowerShell!"
+
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Use Node.js from System
         run: |
