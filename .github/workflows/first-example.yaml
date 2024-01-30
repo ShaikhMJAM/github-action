@@ -25,6 +25,12 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Set PowerShell Path
+        run: |
+          $powershellPath = "${env:SystemRoot}\System32\WindowsPowerShell\v1.0\powershell.exe"
+          Write-Host "PowerShell Path: $powershellPath"
+          echo "::add-path::$powershellPath"
+
       - name: Checkout Code
         uses: actions/checkout@v2
 
