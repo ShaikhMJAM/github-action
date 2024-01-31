@@ -22,11 +22,12 @@ on:
 
 jobs:
   example-job:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
 
     steps:
-      # - name: Run PowerShell Script
-      #   run: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+      - name: run command on git bash
+        shell: bash
+        run:
 
       - name: Checkout Code
         uses: actions/checkout@v4
