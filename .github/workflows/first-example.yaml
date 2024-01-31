@@ -10,6 +10,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Codee
         run: bash
           ls -l
