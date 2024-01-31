@@ -27,7 +27,9 @@ jobs:
     steps:
       - name: run command on git bash
         shell: bash
-        run:
+        run: |
+          # Use Git Bash syntax for your commands
+          echo "Hello, Git Bash!"
 
       - name: Checkout Code
         uses: actions/checkout@v4
