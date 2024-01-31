@@ -1,4 +1,4 @@
-name: Example Workflow
+name: Build and Test
 
 on:
   push:
@@ -6,10 +6,23 @@ on:
       - main
 
 jobs:
-  example-job:
+  build:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout Codeee
-        run: pwsh
-          ls -l
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Display Success Message
+        run: echo "Build successful!"
