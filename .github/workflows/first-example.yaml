@@ -25,10 +25,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: run command on git bash
-        shell: bash
-        run: |
-          "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Git" -c 'echo "Hello, Git Bash!"'
+      # - name: run command on git bash
+      #   shell: bash
+      #   run: |
+      #     "C:\Program Files\Git\usr\bin\bash.exe" -c 'echo "Hello, Git Bash!"'
 
       - name: Checkout Code
         uses: actions/checkout@v4
