@@ -11,5 +11,5 @@ jobs:
 
     steps:
       - name: Checkout Codee
-        run: pwsh
+        run: bash
           ls -l
