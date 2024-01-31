@@ -10,23 +10,8 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Set up Node.jss
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      # - name: Use Node.js from System
-      #   shell: powershell
-      #   run: |
-      #     $PSVersionTable.PSVersion
-      #     npm --version
-      #     node --version
-
-      - name: Install Dependencies
-        run: npm install
 
       - name: Install Yarn
         run: npm install -g yarn
@@ -35,7 +20,7 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn run build
 
       - name: Print Success Message
         if: success()
