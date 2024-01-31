@@ -10,7 +10,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Codee
         uses: actions/checkout@v4
 
       - name: Install Yarn
