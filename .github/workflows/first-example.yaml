@@ -11,4 +11,9 @@ jobs:
 
     steps:
       - name: Checkout Code
-        run: ls -l
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            dir
+          else
+            ls -l
+          fi
