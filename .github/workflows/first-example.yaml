@@ -10,25 +10,20 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # - name: run command on git bash
-      #   shell: bash
-      #   run: |
-      #     "C:\Program Files\Git\usr\bin\bash.exe" -c 'echo "Hello, Git Bash!"'
-
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
 
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Use Node.js from System
-        shell: powershell
-        run: |
-          $PSVersionTable.PSVersion
-          npm --version
-          node --version
+      # - name: Use Node.js from System
+      #   shell: powershell
+      #   run: |
+      #     $PSVersionTable.PSVersion
+      #     npm --version
+      #     node --version
 
       - name: Install Dependencies
         run: npm install
