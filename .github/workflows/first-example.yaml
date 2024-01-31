@@ -11,17 +11,4 @@ jobs:
 
     steps:
       - name: Checkout Codee
-        uses: actions/checkout@v4
-
-      - name: Install Yarn
-        run: npm install -g yarn
-
-      - name: Yarn Install
-        run: yarn install
-
-      - name: Build
-        run: yarn run build
-
-      - name: Print Success Message
-        if: success()
-        run: echo "Build successful! 🎉"
+        uses: ls -l
