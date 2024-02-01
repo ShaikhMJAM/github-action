@@ -75,7 +75,8 @@ jobs:
           pwd
           cat react-deployment.yaml
           pwd
-          sed -i "s+actdocker123/cicdpipeline.*+actdocker123/cicdpipeline:react-app-V1.0${{ github.run_number }}+g" react-deployment.yaml
+          Set-Content -Path "react-deployment.yaml" -Value (Get-Content "react-deployment.yaml" -Raw -Encoding UTF8 -Replace "actdocker123/cicdpipeline.*", "actdocker123/cicdpipeline:react-app-V1.0${{ github.run_number }}")
+
           cat react-deployment.yaml
           git add .
           git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
