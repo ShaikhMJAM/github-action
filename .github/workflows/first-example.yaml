@@ -30,6 +30,9 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
+      - name: Clean Docker Buildx Cache
+        run: docker buildx prune --all --force
+
       - name: Checkout
         uses: actions/checkout@v4
 
