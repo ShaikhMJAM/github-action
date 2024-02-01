@@ -68,18 +68,20 @@ jobs:
         with:
           repository: "ShaikhMJAM/gitops-sampleapp"
           token: ${{ secrets.GIT_PASSWORD }}
-      - name: modify the image
+      - name: Modify the image
         run: |
-          git config user.email jaid.shaikh@acuteinformatics.in
-          git config user.name ShaikhMJAM
-          pwd
-          cat react-deployment.yaml
-          pwd
-          Set-Content -Path "react-deployment.yaml" -Value (Get-Content "react-deployment.yaml" -Raw -Encoding UTF8 -Replace "actdocker123/cicdpipeline.*", "actdocker123/cicdpipeline:react-app-V1.0${{ github.run_number }}")
-
-          cat react-deployment.yaml
+          $gitUserEmail = "jaid.shaikh@acuteinformatics.in"
+          $gitUserName = "ShaikhMJAM"
+          $repoPath = Get-Location
+            
+          $content = Get-Content "react-deployment.yaml" -Raw
+          $content = $content -replace "actdocker123/cicdpipeline.*", "actdocker123/cicdpipeline:react-app-V1.0${env:GITHUB_RUN_NUMBER}"
+          $content | Set-Content "react-deployment.yaml" -Encoding UTF8
+            
+          git config user.email $gitUserEmail
+          git config user.name $gitUserName
           git add .
-          git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
+          git commit -m "Done by Github Actions Job changemanifest: $env:GITHUB_RUN_NUMBER"
           git push origin main
         env:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
